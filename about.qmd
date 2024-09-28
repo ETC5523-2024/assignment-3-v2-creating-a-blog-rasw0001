@@ -1,13 +1,15 @@
 ---
 title: "About"
-image: profile.jpg
+image: rishab_profile.jpg
 about:
   template: jolla
   links:
     - icon: github
-      text: Github
-      href: https://github.com/etc5523-2022
-
+      text: GitHub
+      href: https://github.com/rasw0001
+    - icon: facebook
+      text: Facebook
+      href: https://www.facebook.com/rishab.aswani.1?mibextid=LQQJ4d
 ---
 
-This is a blog template for the ETC5523 Communicating with Data assessment at Monash University.
+Hello! My name is Rishab Aswani, and I am a Business Analytics student with a focus on making informed decisions based on data analysis. This blog, part of my "Communicating with Data" unit, covers a range of topics, starting with COVID-19 testing strategies. My goal is to use data to uncover trends and provide actionable insights.
