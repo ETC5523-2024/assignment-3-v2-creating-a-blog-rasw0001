@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog Template",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Hello! My name is Rishab Aswani, and I am a Business Analytics student with a focus on making informed decisions based on data analysis. This blog, part of my “Communicating with Data” unit, covers a range of topics, starting with COVID-19 testing strategies. My goal is to use data to uncover trends and provide actionable insights."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Comparing COVID-19 Testing Strategies Across Four Countries",
+    "section": "",
+    "text": "The outbreak of COVID-19 brought the points of attention about the healthcare facilities of the world to great light. Antecedent check has been one of the most efficient ways to contain the virus spread. In this case, I examine how four countries; India, Israel, the United Kingdom, and Brazil handled COVID-19 testing. More particularly, the evaluation will centre around the seven-day moving average of tests performed per confirmed COVID19 case."
+  },
+  {
+    "objectID": "index.html#problem-description",
+    "href": "index.html#problem-description",
+    "title": "Comparing COVID-19 Testing Strategies Across Four Countries",
+    "section": "",
+    "text": "The outbreak of COVID-19 brought the points of attention about the healthcare facilities of the world to great light. Antecedent check has been one of the most efficient ways to contain the virus spread. In this case, I examine how four countries; India, Israel, the United Kingdom, and Brazil handled COVID-19 testing. More particularly, the evaluation will centre around the seven-day moving average of tests performed per confirmed COVID19 case."
+  },
+  {
+    "objectID": "index.html#data-description",
+    "href": "index.html#data-description",
+    "title": "Comparing COVID-19 Testing Strategies Across Four Countries",
+    "section": "Data Description",
+    "text": "Data Description\nThe numerical data used for this analysis have been downloaded from the “Our World in Data” dataset that contains COVID-19 data for nearly every country in the world. This dataset holds daily COVID-19 testing statistics namely:\nThe key variables include: - Day: The recording that indicates the day the data was registered. - Entity: Where the information was gathered Within the four countries: India, Israel, United Kingdom, Brazil. - Tests per Confirmed Case: The turn out of COVID-19 tests to each confirmed case.\nThe collected data in the current study underwent some data cleaning procedures to enhance their analysis. This included: - Filtering out data for only the four selected countries: India, Israel, United Kingdom and Brazil. Day reformatted as date. To make the trends more manageable, both the tests and the confirmed cases are averaged for a 7-day rolling rate.\n\n# Loading necessary libraries\nlibrary(tidyverse)\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.5\n✔ forcats   1.0.0     ✔ stringr   1.5.1\n✔ ggplot2   3.5.0     ✔ tibble    3.2.1\n✔ lubridate 1.9.3     ✔ tidyr     1.3.1\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors\n\nlibrary(zoo)\n\n\nAttaching package: 'zoo'\n\nThe following objects are masked from 'package:base':\n\n    as.Date, as.Date.numeric\n\n# Loading the data\ndata &lt;- read.csv(\"C:/Users/risha/Downloads/covid (1).csv\")\n\n# Filtering the data for selected countries\nselected_countries &lt;- c(\"India\", \"United Kingdom\", \"Brazil\", \"Israel\")\nfiltered_data &lt;- data %&gt;% filter(Entity %in% selected_countries)\n\n# Converting 'Day' to Date type\nfiltered_data$Day &lt;- as.Date(filtered_data$Day)\n\n# Calculating 7-day rolling average with the correct column name\nfiltered_data &lt;- filtered_data %&gt;%\n  group_by(Entity) %&gt;%\n  arrange(Day) %&gt;%\n  mutate(Rolling_Avg = rollmean(Daily.COVID.19.tests.per.new.confirmed.case, k = 7, fill = NA, align = \"right\"))"
+  },
+  {
+    "objectID": "index.html#references",
+    "href": "index.html#references",
+    "title": "Comparing COVID-19 Testing Strategies Across Four Countries",
+    "section": "References",
+    "text": "References\nOur World in Data. (2022). COVID-19 Data. Retrieved from https://ourworldindata.org/covid-testing"
+  }
+]
