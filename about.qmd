@@ -13,3 +13,10 @@ about:
 ---
 
 Hello! My name is Rishab Aswani, and I am a Business Analytics student with a focus on making informed decisions based on data analysis. This blog, part of my "Communicating with Data" unit, covers a range of topics, starting with COVID-19 testing strategies. My goal is to use data to uncover trends and provide actionable insights.
+
+## Contact
+
+Feel free to reach out to me via the following platforms:
+
+- ![Email icon](https://cdn-icons-png.flaticon.com/512/281/281769.png) [Email](mailto:rasw0001@student.monash.edu)
+- ![Facebook icon](https://cdn-icons-png.flaticon.com/512/733/733547.png) [Facebook](https://www.facebook.com/rishab.aswani.1?mibextid=LQQJ4d)
