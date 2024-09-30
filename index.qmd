@@ -1,6 +1,6 @@
 ---
 title: "Comparing COVID-19 Testing Strategies Across Four Countries"
-date: "2024-09-28"
+date: "2024-09-29"
 author: "Rishab Aswani"
 listing:
   contents: posts
@@ -11,28 +11,35 @@ listing:
   filter-ui: false
 page-layout: full
 title-block-banner: true
+editor: 
+  markdown: 
+    wrap: sentence
 ---
-
 
 ## Problem Description
 
-The outbreak of COVID-19 brought the points of attention about the healthcare facilities of the world to great light. Antecedent check has been one of the most efficient ways to contain the virus spread. In this case, I examine how four countries; India, Israel, the United Kingdom, and Brazil handled COVID-19 testing. More particularly, the evaluation will centre around the seven-day moving average of tests performed per confirmed COVID19 case.
+The outbreak of COVID-19 brought the points of attention about the healthcare facilities of the world to great light.
+Antecedent check has been one of the most efficient ways to contain the virus spread.
+In this case, I examine how four countries; India, Israel, the United Kingdom, and Brazil handled COVID-19 testing.
+More particularly, the evaluation will centre around the seven-day moving average of tests performed per confirmed COVID19 case.
 
 ## Data Description
 
-The numerical data used for this analysis have been downloaded from the “Our World in Data” dataset that contains COVID-19 data for nearly every country in the world. This dataset holds daily COVID-19 testing statistics namely:
+The numerical data used for this analysis have been downloaded from the “Our World in Data” dataset that contains COVID-19 data for nearly every country in the world.
+This dataset holds daily COVID-19 testing statistics namely:
 
-The key variables include:
-- `Day`: The recording that indicates the day the data was registered.
+The key variables include: \
+- `Day`: The recording that indicates the day the data was registered.\
 - `Entity`: Where the information was gathered Within the four countries: India, Israel, United Kingdom, Brazil.
+\
 - `Tests per Confirmed Case`: The turn out of COVID-19 tests to each confirmed case.
 
-The collected data in the current study underwent some data cleaning procedures to enhance their analysis. This included:
-- Filtering out data for only the four selected countries: India, Israel, United Kingdom and Brazil.
+The collected data in the current study underwent some data cleaning procedures to enhance their analysis.
+This included: - Filtering out data for only the four selected countries: India, Israel, United Kingdom and Brazil.
 Day reformatted as date.
 To make the trends more manageable, both the tests and the confirmed cases are averaged for a 7-day rolling rate.
 
-```{r}
+```{r message=FALSE, echo=FALSE, warning=FALSE}
 # Loading necessary libraries
 library(tidyverse)
 library(zoo)
@@ -54,11 +61,13 @@ filtered_data <- filtered_data %>%
   mutate(Rolling_Avg = rollmean(Daily.COVID.19.tests.per.new.confirmed.case, k = 7, fill = NA, align = "right"))
 ```
 
-
 # Analysis
-The analysis identified that the four nations have different testing approaches. Israel had the highest testing per case at mid 2021 while Brazil had the lowest testing ratio throughout the period. The United Kingdom however kept high testing throughout especially during the strict lockdown periods while India’s positivity was noticed during the Omicron wave at the beginning of the year 2022.
 
-```{r}
+The analysis identified that the four nations have different testing approaches.
+Israel had the highest testing per case at mid 2021 while Brazil had the lowest testing ratio throughout the period.
+The United Kingdom however kept high testing throughout especially during the strict lockdown periods while India’s positivity was noticed during the Omicron wave at the beginning of the year 2022.
+
+```{r echo=FALSE, eval=TRUE, warning=FALSE}
 # Creating the plot
 ggplot(filtered_data, aes(x = Day, y = Rolling_Avg, color = Entity)) +
   geom_line() +
@@ -70,12 +79,16 @@ ggplot(filtered_data, aes(x = Day, y = Rolling_Avg, color = Entity)) +
 
 # Saving the plot
 ggsave("figure_1.png", width = 10, height = 6)
-
 ```
 
 Figure 1: 7-day Rolling Average of Tests Per Confirmed COVID-19 Case across Four Countries
 
-```{r}
+
+### Rolling Average Summary Table
+
+The table shows the up-to-date 7-day rolling average of tests carried out per confirmed COVID-19 case in the countries of concern.
+
+```{r echo=FALSE, eval=TRUE, warning=FALSE}
 # Creating a summary table with the latest rolling average for each country
 summary_table <- filtered_data %>%
   group_by(Entity) %>%
@@ -89,14 +102,17 @@ summary_table <- filtered_data %>%
 summary_table
 ```
 
-### Rolling Average Summary Table
-The table shows the up-to-date 7-day rolling average of tests carried out per confirmed COVID-19 case in the countries of concern.
-
 
 # Conclusion
 
-The case successfully shows how various testing approaches impacted the development of the pandemic in various nations. There is also the necessity for high levels of testing because that is the key in preventing the spread of the virus since many people often have no symptoms.
-Therefore, the evidence indicates that international locations with higher incidences of testing especially those in Europe like Israel and United Kingdom were more capable of handling COVID19. However, countries with fewer tests, such as Brazil, might face more difficulties in containing the outbreak, revealing what may be the biggest asset in containing the virus – testing.
+The case successfully shows how various testing approaches impacted the development of the pandemic in various nations.
+There is also the necessity for high levels of testing because that is the key in preventing the spread of the virus since many people often have no symptoms.
+Therefore, the evidence indicates that international locations with higher incidences of testing especially those in Europe like Israel and United Kingdom were more capable of handling COVID19.
+However, countries with fewer tests, such as Brazil, might face more difficulties in containing the outbreak, revealing what may be the biggest asset in containing the virus – testing.
 
 ## References
-Our World in Data. (2022). COVID-19 Data. Retrieved from [https://ourworldindata.org/covid-testing](https://ourworldindata.org/covid-testing)
+
+Our World in Data.
+(2022).
+COVID-19 Data.
+Retrieved from <https://ourworldindata.org/covid-testing>
