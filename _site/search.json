@@ -2,9 +2,9 @@
   {
     "objectID": "posts/welcome/index.html",
     "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog Template",
+    "title": "My First Blog Post",
     "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!"
+    "text": "This is the content of my first blog post!"
   },
   {
     "objectID": "about.html",

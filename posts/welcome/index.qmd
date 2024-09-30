@@ -1,12 +1,11 @@
 ---
-title: "Welcome To My Blog Template"
-author: "Emi Tanaka"
-date: "2022-07-18"
-categories: [news]
+title: "My First Blog Post"
+author: "Rishab Aswani"
+date: "2024-09-29"
+categories: [Data Analysis]
 ---
 
-This is the first post in a Quarto blog. Welcome!
+This is the content of my first blog post!
 
-![](thumbnail.jpg)
 
 
